@@ -10,15 +10,16 @@ class ABEscheme:
         pass
     
 
-#Reminder - Fix constructor, or implement method that returns aw11, kpac17, cpac17, constructors must return None
 class ABE:
     def __init__(self, scheme:Type, attributes:list[str], policy:str):
-        if type(scheme) != Type:
-            return "Scheme has to be either ac17 or aw11"
         if scheme == Aw11:
             self.aw11 = Aw11(attributes, policy)
-        if scheme == KPAc17:
-            self.ac17 = KPAc17(attributes, policy)
+        elif scheme == KPAc17:
+            self.kpac17 = KPAc17(attributes, policy)
+        elif scheme == CPAc17:
+            self.cpac17 = CPAc17(attributes, policy)
+        else:
+            print("Scheme has to be either aw11 or ac17")
 
 
 class Aw11(ABEscheme):
@@ -229,14 +230,29 @@ class CPAc17(ABEscheme):
         self.sk = ac17.cp_keygen(self.msk, self.attributes)
 
 
-
 """
 ----Aw11 example----
-
-aw11s = Aw11(["A", "B"], '"A" or "B"')
-aw11s.generate_static_keys()
-aw11s.keygen("bob", ["A"])
-ciphertext = aw11s.encrypt("our plaintext!")
-plaintext_after = aw11s.decrypt(ciphertext)
+scheme = ABE(scheme=Aw11, attributes=["A", "B"], policy='"A" or "B"')
+scheme.aw11.generate_static_keys()
+scheme.aw11.keygen("bob", ["A"])
+ciphertext = scheme.aw11.encrypt("our plaintext!")
+plaintext_after = scheme.aw11.decrypt(ciphertext)
 print("".join(chr(i) for i in plaintext_after))
+
+----KPAc17 example---
+scheme = ABE(scheme=KPAc17, attributes=["A", "B"], policy='("A" and "B")')
+scheme.kpac17.generate_static_keys()
+scheme.kpac17.keygen()
+ciphertext = scheme.kpac17.encrypt("Secret")
+plaintext_after = scheme.kpac17.decrypt(ciphertext)
+print(plaintext_after)
+
+----CPAc17 example---
+scheme = ABE(scheme=CPAc17, attributes=["A", "B"], policy='("A" and "B")')
+schemes.cpac17.generate_static_keys()
+schemes.cpac17.keygen()
+ciphertext = schemes.cpac17.encrypt("Secret 2")
+plaintext_after = schemes.cpac17.decrypt(ciphertext)
+print(plaintext_after)
 """
+
