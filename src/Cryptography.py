@@ -12,16 +12,13 @@ class ABEscheme:
 
 #Reminder - Fix constructor, or implement method that returns aw11, kpac17, cpac17, constructors must return None
 class ABE:
-    def __init__(scheme:Type, attributes:list[str], policy:str):
+    def __init__(self, scheme:Type, attributes:list[str], policy:str):
         if type(scheme) != Type:
             return "Scheme has to be either ac17 or aw11"
         if scheme == Aw11:
-            aw11 = Aw11(attributes, policy)
-            return aw11
+            self.aw11 = Aw11(attributes, policy)
         if scheme == KPAc17:
-            ac17 = KPAc17(attributes, policy)
-            return ac17
-
+            self.ac17 = KPAc17(attributes, policy)
 
 
 class Aw11(ABEscheme):
