@@ -14,7 +14,7 @@ class ABEscheme:
     
 
 class ABE:
-    def __init__(self, scheme:Type, attributes:list[str], policy:str):
+    def __init__(self, scheme:Type, attributes:list[str]=None, policy:str=None):
         if scheme == Aw11:
             self.aw11 = Aw11(attributes, policy)
         elif scheme == KPAc17:
