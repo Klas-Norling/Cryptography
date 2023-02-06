@@ -8,6 +8,9 @@ class ABEscheme:
 
     def decrypt(self, ciphertext:str) -> str:
         pass
+
+    def keygen(self) -> None:
+        pass
     
 
 class ABE:
