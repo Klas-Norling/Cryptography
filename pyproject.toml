@@ -4,5 +4,18 @@ name = "Cryptography"
 version = "0.0.1"
 description = "RABE python library that has three schemes, Aw11, KPAc17 and CPAc17"
 
-[dependencies]
-rabe = ">=0.1.0"
+[tool.poetry]
+authors = ["Klas Åman Norling <klaman-0@student.ltu.se>"]
+name = "Cryptography"
+version = "0.0.1"
+description = "RABE python library that has three schemes, Aw11, KPAc17 and CPAc17"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+python = ">3.7"
+setuptools = "~58.0"
+wheel = "*"
+rabe_py = { git = "https://github.com/Klas-Norling/rabe_py.git", branch = "main" }
