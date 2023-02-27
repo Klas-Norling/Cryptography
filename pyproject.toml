@@ -1,12 +1,12 @@
 [project]
 authors = [{ name = "Klas Åman Norling", email = "klaman-0@student.ltu.se" }]
-name = "Cryptography"
+name = "rabe_crypt"
 version = "0.0.1"
 description = "RABE python library that has three schemes, Aw11, KPAc17 and CPAc17"
 
 [tool.poetry]
 authors = ["Klas Åman Norling <klaman-0@student.ltu.se>"]
-name = "Cryptography"
+name = "rabe_crypt"
 version = "0.0.1"
 description = "RABE python library that has three schemes, Aw11, KPAc17 and CPAc17"
 
